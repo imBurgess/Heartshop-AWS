@@ -122,6 +122,8 @@ import { useRoute, useRouter } from "vue-router";
 import { useMessage } from "naive-ui"; // 如有安裝 Naive UI
 import { useCartStore } from "@/stores/cart";
 
+const { getFullImageUrl } = useImageUrl();
+
 const route = useRoute();
 const router = useRouter();
 const message = useMessage();
@@ -263,7 +265,7 @@ const fetchProducts = async () => {
             : [],
         // 使用後端回傳的 imageUrl 或 images[0]，否則給預設圖
         image:
-          p.imageUrl || (p.images && p.images[0]) || "/products/coat01.jpg",
+          getFullImageUrl(p.imageUrl || (p.images && p.images[0])) || "/products/coat01.jpg",
         quantity: 1, // 購物車用
       }));
     }

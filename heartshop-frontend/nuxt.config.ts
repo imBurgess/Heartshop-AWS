@@ -67,5 +67,10 @@ export default defineNuxtConfig({
         changeOrigin: true,
       },
     },
+    // 生產環境：SSR 伺服器端呼叫 /api/* 時轉發至後端
+    routeRules: {
+      "/api/**": { proxy: `${apiHost}/api/**` },
+      "/uploads/**": { proxy: `${apiHost}/api/uploads/**` },
+    },
   },
 });

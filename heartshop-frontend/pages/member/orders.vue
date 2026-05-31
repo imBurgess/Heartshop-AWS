@@ -65,7 +65,7 @@
                 >
                   <img
                     v-if="item.productImage"
-                    :src="item.productImage"
+                    :src="getFullImageUrl(item.productImage)"
                     :alt="item.productName"
                     class="item-img"
                   />
@@ -213,6 +213,8 @@ import { useMessage } from 'naive-ui'
 import { orderService, type Order } from '@/services/order'
 import { qaService, type QaItem } from '@/services/qa'
 
+const { getFullImageUrl } = useImageUrl()
+
 const router = useRouter()
 const route = useRoute()
 const message = useMessage()
@@ -297,7 +299,7 @@ const submitECPayForm = (actionUrl: string, params: Record<string, string>) => {
       const input = document.createElement('input')
       input.type = 'hidden'
       input.name = key
-      input.value = params[key]
+      input.value = params[key] ?? ''
       form.appendChild(input)
     }
   }

@@ -35,7 +35,7 @@
           <!-- 商品圖片 -->
           <div class="itemThumb">
             <n-image
-              :src="item.image"
+              :src="getFullImageUrl(item.image)"
               :alt="item.name"
               width="80"
               height="80"
@@ -132,6 +132,8 @@
 import { onMounted } from "vue";
 import { useCartStore } from "@/stores/cart";
 import { storeToRefs } from "pinia";
+
+const { getFullImageUrl } = useImageUrl();
 
 const cartStore = useCartStore();
 const { items: cartItems, totalQty, totalAmount } = storeToRefs(cartStore);
