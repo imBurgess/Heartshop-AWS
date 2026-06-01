@@ -30,6 +30,11 @@ dist/
 build/
 out/
 *.log
+*.zip
+*.tar.gz
+
+# Uploaded images (runtime files, not source)
+HeartShop-Spring/uploads/
 
 # Java/Spring Boot (for HeartShop-Spring)
 target/
