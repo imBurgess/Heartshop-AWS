@@ -153,6 +153,3 @@ ALB / EB 健康檢查路徑設為 `/api/categories`（根路徑 `/` 回 404）
 
 ---
 
-## License
-
-MIT
